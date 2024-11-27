@@ -1,0 +1,41 @@
+curl -v -b mycookie -c mycookie "https://oauth-openshift.apps.carp.opencontainer.io/oauth/authorize?response_type=code&client_id=blue-app-client&scope=user:info&state=A5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%3D&redirect_uri=http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift"
+
+curl -X POST -v -b mycookie -c mycookie "https://oauth-openshift.apps.carp.opencontainer.io/login?then=%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3Dblue-app-client%26scope%3Duser%3Ainfo%26state%3DA5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%253D%26redirect_uri%3Dhttp%3A%2F%2Fblue-app-oauth-app.apps.carp.opencontainer.io%2Flogin%2Foauth2%2Fcode%2Fopenshift"
+
+curl -X GET -v -b mycookie -c mycookie "https://oauth-openshift.apps.carp.opencontainer.io/login?reason=token_expired&then=%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3Dblue-app-client%26scope%3Duser%3Ainfo%26state%3DA5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%253D%26redirect_uri%3Dhttp%3A%2F%2Fblue-app-oauth-app.apps.carp.opencontainer.io%2Flogin%2Foauth2%2Fcode%2Fopenshift"
+
+curl -X POST -v -b mycookie -c mycookie -H "Content-Type: application/x-www-form-urlencoded" -d "https://oauth-openshift.apps.carp.opencontainer.io/login?then=%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26client_id%3Dblue-app-client%26scope%3Duser%3Ainfo%26state%3DA5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%253D%26redirect_uri%3Dhttp%3A%2F%2Fblue-app-oauth-app.apps.carp.opencontainer.io%2Flogin%2Foauth2%2Fcode%2Fopenshift"
+
+then=/oauth/authorize?response_type=code&amp;client_id=blue-app-client&amp;scope=user:info&amp;state=A5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%3D&amp;redirect_uri=http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift
+
+csrf=4_6qR19NRU-cMJ_aic5JlCrecnre8U-FKI2PJpTu7eE
+
+
+curl -X POST -v -b mycookie -c mycookie -H "Content-Type: application/x-www-form-urlencoded" -d "username=kubeadmin&password=AVPLH-c7qJC-BwZ4H-ELcPM&csrf=4_6qR19NRU-cMJ_aic5JlCrecnre8U-FKI2PJpTu7eE&then=/oauth/authorize?response_type=code&amp;client_id=blue-app-client&amp;scope=user:info&amp;state=A5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%3D&amp;redirect_uri=http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift" "https://oauth-openshift.apps.carp.opencontainer.io/login"
+
+curl -v -b mycookie -c mycookie "https://oauth-openshift.apps.carp.opencontainer.io/oauth/authorize?response_type=code&client_id=blue-app-client&scope=user:info&state=A5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%3D&redirect_uri=http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift"
+
+http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift?code=sha256~Ec__xqHLIlcxEGUa6MQANKdStNVKeM1xnfZmD-jsTaw&state=A5XnZzXFNEEz9UAic-GAxktQFY9LY45ipC3pjR3S4Dc%3D
+
+sha256~Ec__xqHLIlcxEGUa6MQANKdStNVKeM1xnfZmD-jsTaw
+
+
+curl -k -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=authorization_code&code=sha256~Ec__xqHLIlcxEGUa6MQANKdStNVKeM1xnfZmD-jsTaw&redirect_uri=http://blue-app-oauth-app.apps.carp.opencontainer.io/login/oauth2/code/openshift&client_id=blue-app-client&client_secret=test-value" https://oauth-openshift.apps.carp.opencontainer.io/oauth/token
+{"access_token":"sha256~KmuxY3DdMk3CQ2QqF6__yfh_UzAPEPJQqJopLCNLfJY","expires_in":86400,"scope":"user:info","token_type":"Bearer"}
+
+
+sha256~KmuxY3DdMk3CQ2QqF6__yfh_UzAPEPJQqJopLCNLfJY
+
+curl -k -H "Authorization: Bearer sha256~KmuxY3DdMk3CQ2QqF6__yfh_UzAPEPJQqJopLCNLfJY" "https://api.carp.opencontainer.io:6443/apis/user.openshift.io/v1/users/~"
+{
+  "kind": "User",
+  "apiVersion": "user.openshift.io/v1",
+  "metadata": {
+    "name": "kube:admin",
+    "creationTimestamp": null
+  },
+  "groups": [
+    "system:authenticated",
+    "system:cluster-admins"
+  ]
+}%                                         

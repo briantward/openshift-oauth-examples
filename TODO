@@ -1,0 +1,7 @@
+all: 
+- quarkus examples
+- write up documentation
+
+dex: mount spring config to app's root dir to load from there.
+
+spring-security: clean up

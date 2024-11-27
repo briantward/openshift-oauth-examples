@@ -1,0 +1,6 @@
+[submodule "dex/spring-boot-dex"]
+	path = dex/spring-boot-dex
+	url = https://github.com/wearearima/spring-boot-dex.git
+[submodule "oauth-proxy/spring-boot"]
+	path = oauth-proxy/spring-boot
+	url = https://github.com/mkyong/spring-boot

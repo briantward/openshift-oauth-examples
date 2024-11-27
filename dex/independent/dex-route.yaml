@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: dex-example
+  name: dex-example
+  namespace: test
+spec:
+  host: dex-test.apps.barp.opencontainer.io
+  port:
+    targetPort: port-1
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: dex-example
+    weight: 100
+  wildcardPolicy: None
