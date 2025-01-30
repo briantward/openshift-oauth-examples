@@ -1,38 +1,38 @@
 Spring Oauth2 Documentation
 
-https://docs.spring.io/spring-security/reference/servlet/oauth2/index.html
-https://docs.spring.io/spring-security/reference/servlet/oauth2/login/index.html
-https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html
-https://docs.spring.io/spring-security/reference/servlet/oauth2/login/advanced.html
+- https://docs.spring.io/spring-security/reference/servlet/oauth2/index.html
+- https://docs.spring.io/spring-security/reference/servlet/oauth2/login/index.html
+- https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html
+- https://docs.spring.io/spring-security/reference/servlet/oauth2/login/advanced.html
 
 Spring Security Official Examples
 
-https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/oauth2/login
+- https://github.com/spring-projects/spring-security-samples/tree/main/servlet/spring-boot/java/oauth2/login
 
 
 Red Hat OpenJDK 21 base s2i build:
 
-https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0
+- https://catalog.redhat.com/software/containers/ubi8/openjdk-21/653fb7e21b2ec10f7dfc10d0
 
 A very old (6+yrs) implementation of Spring directly connected to OpenShift Oauth server:
 
-https://github.com/muff1nman/oauth-openshift-springboot-example
+- https://github.com/muff1nman/oauth-openshift-springboot-example
 
 Dex documentation on the OpenShift Connector
 
-https://dexidp.io/docs/connectors/openshift/
+- https://dexidp.io/docs/connectors/openshift/
 
 Dex uses a marshalled value of the userID and the connectionID to create a subject:
 
-https://github.com/dexidp/dex/blob/master/server/oauth2.go#L344
+- https://github.com/dexidp/dex/blob/master/server/oauth2.go#L344
 
 A very useful Spring Boot implementation with Dex.
 
-https://github.com/wearearima/spring-boot-dex/
+- https://github.com/wearearima/spring-boot-dex/
 
 A very simple start, not useful with OpenShift or Dex.
 
-https://spring.io/guides/tutorials/spring-boot-oauth2
+- https://spring.io/guides/tutorials/spring-boot-oauth2
 
 
 
