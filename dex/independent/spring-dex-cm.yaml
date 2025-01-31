@@ -17,11 +17,11 @@ data:
             registration:
               dex:
                 provider: dex
-                client-id: spring-dex-test
+                client-id: spring-dex-ind
                 client-secret: test-value
                 authorization-grant-type: authorization_code
                 scope: "openid,profile,groups"
-                redirect-uri: https://spring-dex-test.apps.barp.opencontainer.io/login/oauth2/code/dex
+                redirect-uri: https://spring-dex-ind.apps.barp.opencontainer.io/login/oauth2/code/dex
 
             provider:
               dex:
@@ -32,5 +32,5 @@ data:
                 user-name-attribute: name
 kind: ConfigMap
 metadata:
-  name: spring-dex
+  name: spring-dex-ind
   namespace: test

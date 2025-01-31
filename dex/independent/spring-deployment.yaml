@@ -2,16 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: spring-dex-test
-    app.kubernetes.io/component: spring-dex-test
-    app.kubernetes.io/instance: spring-dex-test
-  name: spring-dex-test
+    app: spring-dex-ind
+    app.kubernetes.io/component: spring-dex-ind
+    app.kubernetes.io/instance: spring-dex-ind
+  name: spring-dex-ind
   namespace: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      deployment: spring-dex-test
+      deployment: spring-dex-ind
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,12 +20,12 @@ spec:
   template:
     metadata:
       labels:
-        deployment: spring-dex-test
+        deployment: spring-dex-ind
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/test/spring-dex-test@sha256:8525a89dcdf2964d041785ce0932e4ef4326e0243946acb3cc9a7e7e34899eb0
+      - image: image-registry.openshift-image-registry.svc:5000/test/spring-boot@sha256:3480e2d8f19b2353606b97574599e5fb2ea66d0b1658fe1a1e09a8df4be8056a
         imagePullPolicy: IfNotPresent
-        name: spring-dex-test
+        name: spring-dex-ind
         ports:
         - containerPort: 8080
           protocol: TCP

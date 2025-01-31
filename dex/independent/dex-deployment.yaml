@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: dex-example
-  name: dex-example
+    app: dex
+  name: dex
   namespace: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: dex-example
+      name: dex
   template:
     metadata:
       labels:
-        name: dex-example
-      name: dex-example
+        name: dex
+      name: dex
     spec:
       containers:
       - command: ["/usr/local/bin/dex","serve","/dex-config/dex-config.yaml"]
@@ -50,11 +50,9 @@ spec:
         volumeMounts:
         - mountPath: /dex-config
           name: dex-config
-      serviceAccount: dex-server
-      serviceAccountName: dex-server
       schedulerName: default-scheduler
       volumes:
       - name: dex-config
         configMap:
           defaultMode: 420
-          name: dex-config
+          name: dex-config-ind

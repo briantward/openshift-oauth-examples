@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: dex-config
+  name: dex-config-ind
   namespace: test
 data:
   dex-config.yaml: |
@@ -23,9 +23,9 @@ data:
       addr: 0.0.0.0:5557
 
     staticClients:
-      - id: spring-dex-test
+      - id: spring-dex-ind
         redirectURIs:
-          - 'https://spring-dex-test.apps.barp.opencontainer.io/login/oauth2/code/dex'
+          - 'https://spring-dex-ind.apps.barp.opencontainer.io/login/oauth2/code/dex'
         name: 'Spring Dex Test'
         secret: test-value
 
@@ -41,7 +41,3 @@ data:
           insecureCA: true
           groups: []
           userIDKey: username
-          #claimMapping:
-          #  userNameKey: username
-          #  preferredUsernameKey: preferred_username
-          #  emailKey: email

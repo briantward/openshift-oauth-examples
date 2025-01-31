@@ -2,10 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: spring-dex-test
-    app.kubernetes.io/component: spring-dex-test
-    app.kubernetes.io/instance: spring-dex-test
-  name: spring-dex-test
+    app: spring-dex-ind
+    app.kubernetes.io/component: spring-dex-ind
+    app.kubernetes.io/instance: spring-dex-ind
+  name: spring-dex-ind
   namespace: test
 spec:
   ports:
@@ -18,5 +18,5 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    deployment: spring-dex-test
+    deployment: spring-dex-ind
   type: ClusterIP
