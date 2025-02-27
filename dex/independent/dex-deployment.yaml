@@ -48,11 +48,26 @@ spec:
             cpu: 250m
             memory: 128Mi
         volumeMounts:
+        - mountPath: /dex-cert
+          name: dex-cert
         - mountPath: /dex-config
           name: dex-config
+        - name: trusted-ca
+          mountPath: /etc/pki/ca-trust/extracted/pem
+          readOnly: true
       schedulerName: default-scheduler
       volumes:
       - name: dex-config
         configMap:
           defaultMode: 420
           name: dex-config-ind
+      - name: dex-cert
+        secret:
+          defaultMode: 420
+          secretName: dex-cert
+      - name: trusted-ca
+        configMap:
+          name: ca-bundle
+          items:
+            - key: ca-bundle.crt 
+              path: tls-ca-bundle.pem 

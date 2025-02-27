@@ -9,6 +9,16 @@ data:
         com:
           example: TRACE
     spring:
+      ssl:
+        bundle:
+          jks:
+            myclient:
+              keystore:
+                location: file:/cert/keystore.jks
+                password: changeit
+              truststore:
+                location: file:/cert/truststore.jks
+                password: changeit
       mvc:
         log-request-details: true
       security:
@@ -22,7 +32,6 @@ data:
                 authorization-grant-type: authorization_code
                 scope: "openid,profile,groups"
                 redirect-uri: https://spring-dex-ind.apps.barp.opencontainer.io/login/oauth2/code/dex
-
             provider:
               dex:
                 authorization-uri: https://dex-test.apps.barp.opencontainer.io/dex/auth

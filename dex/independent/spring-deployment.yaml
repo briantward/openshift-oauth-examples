@@ -23,9 +23,12 @@ spec:
         deployment: spring-dex-ind
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/test/spring-boot@sha256:3480e2d8f19b2353606b97574599e5fb2ea66d0b1658fe1a1e09a8df4be8056a
+      - image: image-registry.openshift-image-registry.svc:5000/test/spring-boot@sha256:e483d8418391e7506bf331608b4feef9ea0a214d09e602862e5e5becde547fb5
         imagePullPolicy: IfNotPresent
         name: spring-dex-ind
+        env:
+        - name: JAVA_OPTS_APPEND
+          value: "-Djavax.net.ssl.trustStore=/cert/truststore.jks -Djavax.net.ssl.trustStorePassword=changeit"
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -34,8 +37,22 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        volumeMounts:
+        - name: properties
+          mountPath: /deployments/config
+          readOnly: true
+        - name: wildcard
+          mountPath: /cert
+          readOnly: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - name: properties
+        configMap:
+          name: app-properties
+      - name: wildcard
+        secret:
+          secretName: stores

@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  application.properties: |-
+    logging.level.root=INFO
+    logging.level.org.springframework=TRACE
+    logging.level.com.example=TRACE
+    spring.mvc.log-request-details=true
+    spring.security.oauth2.client.registration.dex.provider=dex
+    spring.security.oauth2.client.registration.dex.client-id=spring-dex-ind
+    spring.security.oauth2.client.registration.dex.client-secret=test-value
+    spring.security.oauth2.client.registration.dex.authorization-grant-type=authorization_code
+    spring.security.oauth2.client.registration.dex.scope=openid,profile,groups
+    spring.security.oauth2.client.registration.dex.redirect-uri=https://spring-dex-ind.apps.barp.opencontainer.io/login/oauth2/code/dex
+    spring.security.oauth2.client.provider.dex.authorization-uri=https://dex-test.apps.barp.opencontainer.io/dex/auth
+    spring.security.oauth2.client.provider.dex.token-uri=https://dex-test.apps.barp.opencontainer.io/dex/token
+    spring.security.oauth2.client.provider.dex.jwk-set-uri=https://dex-test.apps.barp.opencontainer.io/dex/keys
+    spring.security.oauth2.client.provider.dex.user-info-uri=https://dex-test.apps.barp.opencontainer.io/dex/userinfo
+    spring.security.oauth2.client.provider.dex.user-name-attribute=name
+kind: ConfigMap
+metadata:
+  name: app-properties
+  namespace: test
